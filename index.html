@@ -1,11 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+<link rel="stylesheet" href="style.css">
+<style>
+  p {color:red}
+  .a{color:blue}
+</style>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
 <body>
-  page
+  <p>hello world</p>
+  <p class="a">밤양갱</p>
+  <p class="b">초코빵</p>
+  <p class="c">소보로빵</p>
+  <p class="d">밤식빵</p>
+  <p style="color:green">소라빵</p>
 </body>
+<script>
+  console.log("hello")
+  document.getElementsByClassName("c")[0].style.color="yellow";
+</script>
+<script src="script.js"></script>
 </html>
