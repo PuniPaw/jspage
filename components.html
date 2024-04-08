@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>웹 컴포넌트</h1>
+  <div>
+  <p>커스텀 엘리먼츠(Custom Elements)</p>
+  <component-a></component-a>
+</div>
+<div>
+  <p>섀도우 돔(Shadow DOM)</p>
+  <p id="ShadowDOMId"></p>
+</div>
+<div>
+  <p>HTML 탬플릿(HTML Templates)</p>
+  <p id ="pasteTp" style="color:orange"></p>
+  <template id="tp">HTML 탬플릿 입니다.</template>
+</div>
+  <script>
+    //1. 커스텀 엘리멘트
+    class ComponentA extends HTMLElement {
+      connectedCallback(){  //connectcallback?
+        this.setAttribute('id', 'a');
+        this.innerHTML = `
+        <p style="color:red;">커스텀 엘리먼트의 A 컴포넌트</p>
+        `;
+      }
+    }
+    customElements.define("component-a", ComponentA)
+    console.log(ComponentA);
+
+    //2. 섀도우 돔
+    let shadow = document.getElementById("ShadowDOMId");
+    shadow.attachShadow({mode:'open'});
+    shadow.innerHTML = `<p style="blue">섀도우 돔</p>`;
+
+    //3. HTML 탬플릿
+    const tp = document.getElementById("tp");
+    let pasteTp = document.getElementById("pasteTp");
+    
+    const cloneTp = tp.content.cloneNode(true)
+    pasteTp.appendChild(cloneTp);
+  </script>
+</body>
+</html>
