@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <link rel="stylesheet" href="../styles/responsive.css">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <title>Document</title>
+</head>
+<body>
+</body>
+  <header>
+  <a href="../index.html">메인</a>
+  <p id="hamburger">햄버거 메뉴</p>
+  <ul id="vertical">
+    <li><a href="./tag.html">태그</a></li>
+    <li><a href="./event.html">이벤트</a></li>
+    <li><a href="./components.html">컴포넌트</a></li>
+    <li><a href="./form.html">폼</a></li>
+    <li><a href="./openapi.html">OpenAPI</a></li>
+    <li><a href="./responsive.html">반응형</a></li>
+    <li><button id="closeMenu">닫기</button></li>
+  </ul>
+</header>
+<div class="swiper mySwiper">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide">Slide 1</div>
+    <div class="swiper-slide">Slide 2</div>
+    <div class="swiper-slide">Slide 3</div>
+    <div class="swiper-slide">Slide 4</div>
+    <div class="swiper-slide">Slide 5</div>
+    <div class="swiper-slide">Slide 6</div>
+    <div class="swiper-slide">Slide 7</div>
+    <div class="swiper-slide">Slide 8</div>
+  </div>
+  <div class="swiper-scrollbar"></div>
+</div>
+<main>
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>
+  <div>4</div>
+  <div>5</div>
+  <div>6</div>
+  <div>7</div>
+  <div>8</div>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script>
+  let menu = document.getElementById("hamburger");
+  let nav = document.getElementById("vertical");
+  let closeMenu = document.getElementById("closeMenu");
+  menu.addEventListener("click", function() {
+    nav.style.display = "flex";
+  })
+  closeMenu.addEventListener("click", function() {
+    nav.style.display = "none";
+  })
+  window.addEventListener("resize", function() {
+    if(window.innerWidth > 360){
+      nav.style.display = "flex";
+    } else {
+      nav.style.display = "none";
+    }
+  });
+  var swiper = new Swiper(".mySwiper", {
+      scrollbar: {
+        el: ".swiper-scrollbar",
+        hide: true,
+      },
+  });
+</script>
+</html>
